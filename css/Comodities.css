@@ -1,0 +1,5 @@
+/*表格样式*/
+.normal,.normal td,.normal th{border:solid 1px #6C97F9;margin:auto;}
+.normal th{background-color:#C5DAFA;color:navy;font-weight:normal;}
+/*基本样式*/
+table, td,th{border-collapse: collapse;font-size:14px; text-align:center;}

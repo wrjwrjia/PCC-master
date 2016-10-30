@@ -1,0 +1,43 @@
+﻿body 
+{
+    position:absolute; 
+    width:100%; 
+}
+table
+{
+    text-align:right;
+    border-collapse: collapse;
+}
+.chrctcell/*带汉字的格子*/
+{
+    width: 180px;
+    height: 25px;
+    text-align:right;
+}
+.cntrcell/*带控件的格子*/
+{
+    width: 230px;
+    height: 25px;
+    text-align:left;
+}
+.longcell/*长格子*/
+{
+    width:auto;
+    text-align:center;
+}
+.pchrctcell
+{
+    width:178px;
+    text-align:right;
+}
+.pcntrcell
+{
+    width: 229px;
+    height: 25px;
+    text-align:left;
+}
+.plongcell
+{
+    width:auto;
+    text-align:center;
+}

@@ -1,0 +1,20 @@
+﻿
+
+.TableStyle 
+{
+	background-color:#ECF9FC;	
+	font-family:Arial;
+	font-size:15px;
+	width:400px;
+}
+
+.DefaultRow
+{
+	background-color:#ECF9FC;
+}
+
+
+.HighlightRow 
+{
+	background-color:#9AA29A;
+}

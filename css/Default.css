@@ -1,0 +1,54 @@
+﻿/*基本样式*/
+html{scrollbar-face-color: #ffffff;scrollbar-highlight-color: #ffffff;scrollbar-shadow-color: #919192;scrollbar-darkshadow-color: #ffffff;}
+*{font-size:12px;font-family: Arial;scrollbar-highlight-color: #ffffff;scrollbar-shadow-color: #919192;scrollbar-darkshadow-color: #ffffff;}
+ul{list-style-type: none;margin: 0px;padding: 0px;}
+a{text-decoration: none;color:maroon;}
+a:hover{text-decoration:underline;color:Orange;}
+table, td,th{border-collapse: collapse;font-size:12px;}
+
+/*一般gridview样式*/
+.gridview,.gridview td,.gridview th{border:solid 1px #6C97F9;padding:5px 5px 2px;vertical-align:middle;clear:both;}
+.gridview th{font-weight:normal;background-color:#C5DAFA;color:navy;}
+.gridview,.pager{margin:1px auto;}
+.mover{background-color:#E8F0F7;}
+
+/*首页菜单栏等样式*/
+.staticmenuitem,.dynamicmenuitem{padding:2px 5px 1px;border:solid 1px #F7F6F3;}
+.staticmenuitem a,.dynamicmenuitem a{display:block;border:solid 1px #F7F6F3;color:#505050;}
+.staticmenuitem a:hover,.dynamicmenuitem a:hover{text-decoration:none;color:black;display:block;}
+.menuhover{background-color:gold;color:#505050;border:solid 1px gray;}
+.dynamicmenu{border:solid 1px gray;padding:1px 1px 0px;margin-top:1px;}
+.dynamicmenu a:hover,#MenuBar a:hover{text-decoration:none;color:black;display:block;}
+
+/*表格样式*/
+caption{font-size:14px;padding:5px 0px;}
+.normal{margin:auto;}
+.normal,.normal td,.normal th{border:solid 1px #6C97F9;vertical-align:middle;clear:both;padding:0px 5px;}
+.normal td,normal th{height:26px;}
+.normal th{background-color:#C5DAFA;color:navy;font-weight:normal;text-align:right;}
+
+.common,.common td,.common th{border:solid 1px #6C97F9;padding:5px;vertical-align:middle;clear:both;}
+.common th{background-color:#C5DAFA;color:navy;font-weight:normal;}
+
+
+.unpass,.unpass td,.unpass th{border:solid 1px orange;padding:5px 5px 0px 5px;vertical-align:middle;clear:both;}
+.unpass th{background-color:gold;color:black;font-weight:normal;text-align:right;width:80px;}
+
+.back,.back td,.back th{border:solid 1px rosybrown;padding:5px;vertical-align:middle;clear:both;}
+.back th{background-color:tan;color:white;font-weight:normal;text-align:right;width:80px;}
+
+/*单独的元素样式*/
+.txt{border: 1px solid #486CB6;padding:1px;}
+.btn{border: 1px solid #486CB6;background-color:#F1F4FA;width:100px;margin:0px 5px;padding:4px 0px 1px;}
+.lnkbtn{margin:0px 5px;}
+p{text-align:center;}
+#lblMsg{color:Red;font-size:14px;}
+#lblTitle{font-size:14px;color:Green;}
+
+/*树形样式*/
+.tree a{color:Black;text-decoration:none;}
+
+/*登录页面样式*/
+#login p{float:left;margin-top:16px;padding-left:5px;}
+#login .p1{width:100%;padding-top:15px;clear:both;float:left;}
+#login .left{height:100px;float:left;width:100px;background:url(../images/person.gif) no-repeat center center}

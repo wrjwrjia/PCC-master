@@ -1,0 +1,89 @@
+﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Data.SqlClient; //SQL 数据的引用
+using System.IO; //IO文件流的引用
+using System.Data.OleDb;//创建ODBC的连接引用头文件
+using System.Collections; //集合的引用
+
+public partial class TEST_导入excel : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+
+    public void LoadData(string StyleSheet,string path)
+    {
+        try
+        {
+            //定义连接服务器中的Excel文件  同连接本地的ACCESS数据库一样
+            string strCon = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source =" + path + ";Extended Properties=Excel 8.0";
+            //创建一个OleDbConnection链接对象
+            OleDbConnection myConn = new OleDbConnection(strCon);
+            myConn.Open();   //打开数据链接，得到一个数据集     
+            DataSet myDataSet = new DataSet();   //创建DataSet对象   将数据存放在DataSet数据集中去   
+            string StrSql = "select   *   from   [" + StyleSheet + "$]"; //传进来的Excel表的表名
+            OleDbDataAdapter myCommand = new OleDbDataAdapter(StrSql, myConn);
+            //添充数据集
+            myCommand.Fill(myDataSet, "[" + StyleSheet + "$]");
+            //释放占有的系统资源
+            myCommand.Dispose();
+            //创建一个DataTable内存表
+            DataTable DT = myDataSet.Tables["[" + StyleSheet + "$]"];
+            myConn.Close();
+            myCommand.Dispose();
+            SqlConnection conn = new SqlConnection(SQLHelper.connectionString);//建立SQL Server数据库连接
+            conn.Open();//打开SQL Server数据库连接
+            new SqlConnection(SQLHelper.connectionString);
+            //循环读取Excel文件中的数据并添加到SQL Server数据库中
+            for (int j = 0; j < DT.Rows.Count; j++)
+            {
+                string sqlstr = "";//定义一个函数内的全局变量
+                string CID = DT.Rows[j][0].ToString();
+                string Name = DT.Rows[j][1].ToString();
+                string Department = DT.Rows[j][2].ToString();
+                string SDepartment = DT.Rows[j][3].ToString();
+                string Brand = DT.Rows[j][3].ToString();
+                string Size = DT.Rows[j][3].ToString();
+                string Number = DT.Rows[j][3].ToString();
+                string Phone = DT.Rows[j][3].ToString();
+                sqlstr = "insert into CarInfomation(CID,Name,Department,SDepartment,Brand,Size,Number,Phone,NTime,BTime,PTime,StateID,mark)Values('" + CID + "','" + Name + "','" + Department + "','" + SDepartment + "','" + Brand + "','" + Size + "','" + Number + "','" + Phone + "',0,0,0,4,0)";
+                //创建命令对象                
+                SqlCommand mycom = new SqlCommand(sqlstr, conn);
+                //执行定义的插入操作的SQL语句
+                mycom.ExecuteNonQuery();
+            }
+            conn.Close();//关闭SQL Server数据库的连接
+        }
+        catch (Exception ex)
+        {
+            JScript.Alert(ex.Message);
+        }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            //定义Excel表
+            string StyleSheet = "Sheet1";
+            //调用自定义方法LoadData执行将Excel文件中数据导入到SQL Server数据库中
+            string filename = "CarInfo.xls";
+            string SPath = Server.MapPath("file\\" + filename);
+            //FileUpload1.PostedFile.SaveAs(SPath);
+            LoadData(StyleSheet, SPath);
+        }
+        catch (Exception ex)
+        {
+            JScript.Alert(ex.Message);
+        }
+    }
+}

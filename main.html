@@ -1,0 +1,195 @@
+<HTML>
+<HEAD>
+<TITLE>main</TITLE>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV=”Cache-Control” CONTENT=”no-cache”>
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<script src="js/MdiWin.js"></script>
+<script language="javascript" type="text/javascript">
+function setQp(){
+	window.parent.topFrame.HrmTop.style.display="none";
+	qp.style.display="none";
+	fp.style.display="";
+	parent.Frames.rows="23,*,26,0";
+}
+function setFp(){
+	window.parent.topFrame.HrmTop.style.display="";
+	fp.style.display="none";
+	qp.style.display="";
+	parent.Frames.rows="75,*,26,0";
+}
+
+
+function getYwjcbm(sindex){
+	if(sindex==1){
+		return window.parent.main.tab_win1.form1.ywjcbm.value;
+	}
+	if(sindex==2){
+		return window.parent.main.tab_win2.form1.ywjcbm.value;
+	}
+	if(sindex==3){
+		return window.parent.main.tab_win3.form1.ywjcbm.value;
+	}
+	if(sindex==4){
+		return window.parent.main.tab_win4.form1.ywjcbm.value;
+	}
+	if(sindex==5){
+		return window.parent.main.tab_win5.form1.ywjcbm.value;
+	}
+	if(sindex==6){
+		return window.parent.main.tab_win6.form1.ywjcbm.value;
+	}
+}
+function getPatch(sindex){
+	if(sindex==1){
+		return window.parent.main.tab_win1.location.pathname;
+	}
+	if(sindex==2){
+		return window.parent.main.tab_win2.location.pathname;
+	}
+	if(sindex==3){
+		return window.parent.main.tab_win3.location.pathname;
+	}
+	if(sindex==4){
+		return window.parent.main.tab_win4.location.pathname;
+	}
+	if(sindex==5){
+		return window.parent.main.tab_win5.location.pathname;
+	}
+	if(sindex==6){
+		return window.parent.main.tab_win6.location.pathname;
+	}
+}
+
+var w_help=null;
+
+function getHelp(){
+	var ywjcbm;
+	var str_w;
+	ywjcbm=getYwjcbm(win.currentwin.index);
+	
+	parent.myFrame.cols="0,10,*";
+	var spatch=getPatch(win.currentwin.index);
+	screenWidth=window.screen.availWidth;
+	screenHeight=window.screen.availHeight;
+	if (screenWidth>800 ){
+		winHelpWidth=230;
+	}
+	else{
+		winHelpWidth=180;
+	}
+	top.window.resizeTo( screenWidth - winHelpWidth + 4, screenHeight + 8 );
+	top.window.moveTo( -4, -4 );
+	if(w_help){
+		if(!w_help.closed){
+			w_help.location="help/show.jsp?ywjcbm="+ywjcbm+"&patch="+spatch;
+		}else{
+			w_help = window.open("help/show.jsp?ywjcbm="+ywjcbm+"&patch="+spatch, "_blank" , "top=0,left=" + (screenWidth - winHelpWidth) + ",width=" + (winHelpWidth-10) + ",height=" + ( screenHeight - 30 + 4) + ",location=no,scrollbars=yes,toolbar=no,resizable=no" );
+			w_help.resizeTo( winHelpWidth, screenHeight + 8 );
+			w_help.moveTo( screenWidth - winHelpWidth, 0 );
+		}
+	}
+	else{
+		window.open("help/show.jsp?ywjcbm="+ywjcbm+"&patch="+spatch, "_blank" , "top=0,left=" + (screenWidth - winHelpWidth) + ",width=" + (winHelpWidth-10) + ",height=" + ( screenHeight - 30 + 3) + ",location=no,scrollbars=yes,toolbar=no,resizable=no" );
+		w_help.resizeTo( winHelpWidth, screenHeight-1 );
+		w_help.moveTo( screenWidth - winHelpWidth, 0 );
+		//parent.myFrame.cols="0,10,*";
+	}
+	
+}
+</script>
+<style>
+<!-- 
+.wintitle{
+	position:relative;
+	left:-10px;
+	z-index:0;
+	background: url(images/tab1.gif);
+	background-repeat: no-repeat;
+	width:150px;
+	height:25px;
+	padding-left:15px;
+	padding-top:4px;
+	cursor:default;
+}
+.win1{
+	width:100%; 
+	height:100%; 
+}
+.win{
+	position:absolute; 
+	width:100%; 
+	height:100%; 
+	left: 15px; 
+	top: 40px;
+}
+.close{
+	border:1pt solid red;
+	width:15px;
+	height:15px;
+	cursor:hand;
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.STYLE2 {color: #ff0000; font-weight: bold; }
+.STYLE3 {color: #ff0000}
+-->
+</style>
+</HEAD>
+<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="init();AddWin('systemInfo.aspx','DeskTop');" style=" overflow:hidden;">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tr > 
+    <td width="2" height="33" valign="bottom"></td>
+    <td width="15" valign="bottom" background="images/HRMtopMenuTopBg.jpg"><img src="images/HRMtopMenuLeftBg.jpg" width="15"></td>
+    <td valign="bottom" background="images/HRMtopMenuTopBg.jpg"><div style="overflow:hidden;width:100%;">
+      <div id="titlelist" style="margin-left:0;z-index:-1;" height="33"></div>
+    </div></td>
+    <td width="107" height="32" align="right" background="images/HRMtopMenuTopBg.jpg"><table width="100" height="20" border="0"  cellpadding="0" cellspacing="0">
+        <tr> 
+          <td width="25"></td>
+           <td width="25"></td>
+		  
+          <td width="12">             
+          <table width="20" height="22" border="0" cellpadding="0" cellspacing="0" id="fp" style="display:none">
+              <tr> 
+                <td width="20"><div align="center"><a href="#" onClick="setFp();" title="Normal"><img src="images/resize2.gif" width="20" height="22" border="0"></a></div></td>
+              </tr>
+            </table>
+            <table width="20" height="22" border="0" align="right" cellpadding="0" cellspacing="0" id="qp">
+              <tr> 
+               <!--  <td width="20"><div align="center"><a href="#" onClick="setQp();" title="Full Screen"><img src="images/resize1.gif" width="20" height="22" border="0"></a></div></td>-->
+              </tr>
+            </table></td>
+          <td width="6">&nbsp;</td>
+          <td width="7">
+            <table width="20" height="22" border="0" align="right" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td width="20"><div align="center"><img src="images/top_5.jpg" style="cursor:hand" width="17" height="17" alt="Close" onClick="win.removewin(win.currentwin)" align="center" onMouseOver="this.src='images/top_6.jpg'" onMouseDown="this.src='images/top_6.jpg'" onMouseOut="this.src='images/top_5.jpg'"></div></td>
+              </tr>
+            </table></td>
+        </tr>
+    </table></td>
+    <td width="15" background="images/HRMtopMenuTopBg.jpg">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td height="6" colspan="5" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td height="4" background="images/top_4.jpg"></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr> 
+    <td colspan="4" valign="top"><TABLE height="100%" width="100%" border=0 cellspacing=0 cellpadding=0 >
+        <TR> 
+          <TD id="mywindows">&nbsp;</TD>
+        </TR>
+      </TABLE></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+</BODY>
+</HTML>
